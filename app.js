@@ -21,8 +21,9 @@
 // Ensure we're in the project directory, so cwd-relative paths work as expected
 // no matter where we actually lift from.
 // > Note: This is not required in order to lift, but it is a convenient default.
-const { copyAssets } = require("./gulpfile");
+const { copyAssets, compressAssets } = require("./gulpfile");
 copyAssets();
+compressAssets();
 
 process.chdir(__dirname);
 
