@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "gulp": "^4.0.0",
+    "gulp-gzip": "^1.4.2",
     "include-all": "^1.0.0",
     "rc": "^1.2.8",
     "sails": "^0.12.13",

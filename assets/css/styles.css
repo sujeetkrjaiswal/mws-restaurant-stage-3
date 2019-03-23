@@ -87,7 +87,7 @@ section {
   }
   .inside #map-container {
     width: 50%;
-    height: auto;
+    /* height: auto; */
   }
   .inside #restaurant-container {
     width: 50%;
@@ -184,6 +184,7 @@ nav h1 a {
   background-color: #ccc;
   position: sticky !important;
   top: 0;
+  overflow: hidden;
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
@@ -463,4 +464,20 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* Favourite button */
+.fav-button,
+.non-fav-button {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+#fav-container-button.fav .fav-button,
+#fav-container-button.non-fav .non-fav-button {
+}
+#fav-container-button.fav .non-fav-button,
+#fav-container-button.non-fav .fav-button {
+  display: none;
 }

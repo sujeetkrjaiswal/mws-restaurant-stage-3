@@ -126,7 +126,26 @@
       <!-- End map -->
       <!-- Beginning restaurant -->
       <section id="restaurant-container" aria-label="Restaurant Details">
-        <h1 id="restaurant-name" tabindex="0"></h1>
+        <div style="display: flex;justify-content: space-between;">
+          <h1 id="restaurant-name" tabindex="0"></h1>
+          <div id="fav-container-button">
+            <img
+              class="fav-button"
+              src="/img/icons/baseline-favorite_border-24px.svg"
+              role="button"
+              alt="Add to favorite"
+              onclick="favToggle(true)"
+            />
+            <img
+              class="non-fav-button"
+              src="/img/icons/baseline-favorite-24px.svg"
+              role="button"
+              alt="Remove from favorite"
+              onclick="favToggle(false)"
+            />
+          </div>
+        </div>
+
         <div class="restaurant-img-container" tabindex="0">
           <img id="restaurant-img" />
         </div>
@@ -141,90 +160,91 @@
         tabindex="0"
         aria-label="Restaurant Reviews"
       >
+        <h2>Reviews</h2>
         <ul id="reviews-list"></ul>
+        <!-- Begining review submission -->
+        <section id="add-reviews" class="box">
+          <form
+            role="form"
+            action="#"
+            method="post"
+            id="formAddReviews"
+            style=" width: 100%;padding: 0.8em;
+                          margin-left: 0;
+                          margin-right: 0;
+                          height: auto;"
+          >
+            <fieldset>
+              <legend>Write a reviews</legend>
+
+              <div>
+                <label for="username"
+                  >Author:
+                  <span class="required" style="color: red;">*</span></label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="username"
+                  size="30"
+                  maxlength="100"
+                  required="required"
+                  class="title"
+                  id="username"
+                />
+              </div>
+
+              <div
+                id="stars"
+                aria-label="Star Rating"
+                style="display: flex; font-size: 20px;"
+              >
+                <label>
+                  Rating:<span class="required" style="color: red; width: 20px;"
+                    >*</span
+                  >
+                </label>
+                <div class="stars_group">
+                  <input type="radio" id="stars-5" name="rating" value="5" />
+                  <label title="5 stars" for="stars-5">5</label>
+                  |
+                  <input type="radio" id="stars-4" name="rating" value="4" />
+                  <label title="4 stars" for="stars-4">4</label>
+                  |
+                  <input type="radio" id="stars-3" name="rating" value="3" />
+                  <label title="3 stars" for="stars-3">3</label>
+                  |
+                  <input type="radio" id="stars-2" name="rating" value="2" />
+                  <label title="2 stars" for="stars-2">2</label>
+                  |
+                  <input type="radio" id="stars-1" name="rating" value="1" />
+                  <label title="1 stars" for="stars-1">1</label>
+                </div>
+              </div>
+
+              <div>
+                <label for="commentsText" class="comments"
+                  >Comments:<span class="required" style="color: red;"
+                    >*</span
+                  ></label
+                >
+                <textarea
+                  rows="6"
+                  cols="60"
+                  name="comments"
+                  id="commentsText"
+                  placeholder="Write a comment here!"
+                ></textarea>
+                <button class="Submit-button" type="submit">
+                  Submit Comment
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <!-- End Review Submission -->
       </section>
       <!-- End reviews -->
-      <!-- Begining review submission -->
-      <section id="comments" class="box">
-        <form
-          role="form"
-          action="#"
-          method="post"
-          id="formcomment"
-          style=" width: 100%;padding: 0.8em;
-            margin-left: 0;
-            margin-right: 0;
-            height: auto;"
-        >
-          <fieldset>
-            <legend>Write a reviews</legend>
-
-            <div>
-              <label for="username"
-                >Author:
-                <span class="required" style="color: red;">*</span></label
-              >
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                size="30"
-                maxlength="100"
-                required="required"
-                class="title"
-                id="username"
-              />
-            </div>
-
-            <div
-              id="stars"
-              aria-label="Star Rating"
-              style="display: flex; width:100px; font-size: 20px;"
-            >
-              <label>
-                Rating:<span class="required" style="color: red; width: 20px;"
-                  >*</span
-                >
-              </label>
-              <div class="stars_group">
-                <input type="radio" id="stars-5" name="star" value="5" />
-                <label title="5 stars" for="stars-5"></label>
-
-                <input type="radio" id="stars-4" name="star" value="4" />
-                <label title="4 stars" for="stars-4"></label>
-
-                <input type="radio" id="stars-3" name="star" value="3" />
-                <label title="3 stars" for="stars-3"></label>
-
-                <input type="radio" id="stars-2" name="star" value="2" />
-                <label title="2 stars" for="stars-2"></label>
-
-                <input type="radio" id="stars-1" name="star" value="1" />
-                <label title="1 stars" for="stars-1"></label>
-              </div>
-            </div>
-
-            <div>
-              <label for="commentsText" class="comments"
-                >Comments:<span class="required" style="color: red;"
-                  >*</span
-                ></label
-              >
-              <textarea
-                rows="6"
-                cols="60"
-                name="comment"
-                id="commentsText"
-                placeholder="Write a comment here!"
-              ></textarea>
-              <button class="Submit-button" onclick="postReview()">
-                Submit Comment
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </section>
-      <!-- End Review Submission -->
     </main>
     <!-- End main -->
 

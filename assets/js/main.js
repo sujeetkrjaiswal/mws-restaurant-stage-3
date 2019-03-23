@@ -212,24 +212,18 @@ const initMap = () => {
 
   updateRestaurants();
 };
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  state.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener("DOMContentLoaded", event => {
-  initMap(); // added
-  fetchNeighborhoods();
-  fetchCuisines();
+  DBHelper.fetchRestaurants(
+    null,
+    () => {
+      initMap(); // added
+      fetchNeighborhoods();
+      fetchCuisines();
+    },
+    false
+  );
 });

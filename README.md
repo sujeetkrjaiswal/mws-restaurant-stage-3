@@ -1,141 +1,35 @@
-# Local Development API Server
-## Usage
-#### Get Restaurants
-```
-curl "http://localhost:1337/restaurants"
-```
-#### Get Restaurants by id
-````
-curl "http://localhost:1337/restaurants/{3}"
-````
+# Running the project
 
-## Architecture
-Local server
-- Node.js
-- Sails.js
-
-## Contributors
-
-- [Brandy Lee Camacho - Technical Project Manager](mailto:brandy.camacho@udacity.com)
-- [David Harris - Web Services Lead](mailto:david.harris@udacity.com)
-- [Omar Albeik - Frontend engineer](mailto:omaralbeik@gmail.com)
-
-## Getting Started
-
-### Development local API Server
-_Location of server = /server_
-Server depends on [node.js LTS Version: v6.11.2 ](https://nodejs.org/en/download/), [npm](https://www.npmjs.com/get-npm), and [sails.js](http://sailsjs.com/)
-Please make sure you have these installed before proceeding forward.
-
-Great, you are ready to proceed forward; awesome!
-
-Let's start with running commands in your terminal, known as command line interface (CLI)
-
-###### Install project dependancies
-```Install project dependancies
-# npm i
-```
-###### Install Sails.js globally
-```Install sails global
-# npm i sails -g
-```
-###### Start the server
-```Start server
-# node server
-```
-### You should now have access to your API server environment
-debug: Environment : development
-debug: Port        : 1337
-
-
-## Endpoints
-
-### GET Endpoints
-
-#### Get all restaurants
-```
-http://localhost:1337/restaurants/
+```bash
+npm install
+npm start
 ```
 
-#### Get favorite restaurants
-```
-http://localhost:1337/restaurants/?is_favorite=true
-```
+Server will start at port `http://localhost:1337/`
 
-#### Get a restaurant by id
-```
-http://localhost:1337/restaurants/<restaurant_id>
-```
+## Chrome Audit Results
 
+| Criteria            | Index Page | Restaurant-info Page |
+| ------------------- | ---------- | -------------------- |
+| Performance         | 99         | 99                   |
+| Progressive web App | 92         | 92                   |
+| Accessibility       | 94         | 94                   |
+| Best Practises      | 93         | 93                   |
 
-#### Get all restaurant reviews
-```
-http://localhost:1337/reviews/
-```
+### Index Page Audit ScreenShot
 
-#### Get a restaurant review by id
-```
-http://localhost:1337/reviews/<review_id>
-```
+![Screen shot for index page](./screenshots/index-page.png)
 
-#### Get all reviews for a restaurant
-```
-http://localhost:1337/reviews/?restaurant_id=<restaurant_id>
-```
+### Restaurant Info Audit Screenshot
 
+![Screen shot for restaurant info page](./screenshots/restaurant-info.png)
 
-### POST Endpoints
+## Project structuring
 
-#### Create a new restaurant review
-```
-http://localhost:1337/reviews/
-```
+All the client side code is present in assets file. When the server starts all files from `assests` is moved to `.tmp\public` using gulp. All the assets have the gziped version, done using gulp.
 
-###### Parameters
-```
-{
-    "restaurant_id": <restaurant_id>,
-    "name": <reviewer_name>,
-    "rating": <rating>,
-    "comments": <comment_text>
-}
-```
+Sails hosts files under `.tmp\public`.
 
+### Client side changes
 
-### PUT Endpoints
-
-#### Favorite a restaurant
-```
-http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=true
-```
-
-#### Unfavorite a restaurant
-```
-http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=false
-```
-
-#### Update a restaurant review
-```
-http://localhost:1337/reviews/<review_id>
-```
-
-###### Parameters
-```
-{
-    "name": <reviewer_name>,
-    "rating": <rating>,
-    "comments": <comment_text>
-}
-```
-
-
-### DELETE Endpoints
-
-#### Delete a restaurant review
-```
-http://localhost:1337/reviews/<review_id>
-```
-
-
-If you find a bug in the source code or a mistake in the documentation, you can help us by
-submitting an issue to our [Waffle Dashboard](https://waffle.io/udacity/mwnd-issues). Even better you can submit a Pull Request with a fix :)
+Updated files to use indexedDB using idb and localstorage to save local changes. `navigator.onLine` is used to detect if you are online or offline

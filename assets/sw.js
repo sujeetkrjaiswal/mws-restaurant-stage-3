@@ -8,10 +8,10 @@ const itemToCatch = [
   "index.html",
   "restaurant.html",
   "css/styles.css",
+  "js/idb.js",
   "js/dbhelper.js",
   "js/main.js",
   "js/restaurant_info.js",
-  "restaurants",
   "img/icons/icon-72x72.png",
   "img/icons/icon-96x96.png",
   "img/icons/icon-128x128.png",
@@ -23,12 +23,19 @@ const itemToCatch = [
 ];
 
 self.addEventListener("install", event => {
+  if (!event.waitUntill) {
+    return;
+  }
   event.waitUntill(
     caches.open(cacheName).then(cache => cache.addAll(itemToCatch))
   );
 });
 
 self.addEventListener("fetch", event => {
+  if (event.request.url.match(/^(restaurant\/|reviews\/)/)) {
+    return false;
+  }
+
   event.respondWith(
     caches.match(event.request).then(res => {
       if (res) {
