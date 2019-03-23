@@ -11,18 +11,20 @@ Server will start at port `http://localhost:1337/`
 
 | Criteria            | Index Page | Restaurant-info Page |
 | ------------------- | ---------- | -------------------- |
-| Performance         | 99         | 99                   |
-| Progressive web App | 92         | 92                   |
+| Performance         | 100        | 100                  |
 | Accessibility       | 94         | 94                   |
 | Best Practises      | 93         | 93                   |
+| PWA: Fast & Reliable| 3/3        | 3/3                  |
+| PWA: Installable    | 3/3        | 3/3                  |
+| PWA: Optimized      | 5/6        | 5/6                  |
 
 ### Index Page Audit ScreenShot
 
-![Screen shot for index page](./screenshots/index-page.png)
+![Screen shot for index page](./screenshots/index-page.jpg)
 
 ### Restaurant Info Audit Screenshot
 
-![Screen shot for restaurant info page](./screenshots/restaurant-info.png)
+![Screen shot for restaurant info page](./screenshots/restaurant-info.jpg)
 
 ## Project structuring
 
